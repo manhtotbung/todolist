@@ -1,5 +1,5 @@
 import express from 'express';
-import { authme } from '../controller/userController';
+import { authme } from '../controller/userController.js';
 
 
 const router = express.Router();

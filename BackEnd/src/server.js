@@ -1,10 +1,12 @@
 import express from "express";
 import TaskRoutes from './routes/TasksRoutes.js';
 import authRoutes from './routes/authRoutes.js';
+import userRoute from './routes/userRoutes.js';
 import { connectDB } from "./config/db.js";
 import dotenv from 'dotenv';
 import cors from 'cors';
 import path from 'path';
+import cookieParser from 'cookie-parser';
 
 dotenv.config();
 const app = express();
@@ -13,12 +15,14 @@ const __dirname = path.resolve();
 
 //middleware
 app.use(express.json());
+app.use(cookieParser());
 
 //public route
 app.use("/api/tasks", TaskRoutes);
 app.use("/api/auth", authRoutes);
-//private route
 
+//private route
+app.use("/api/users", userRoute);
 
 if(process.env.NODE_ENV !== "production")
 {

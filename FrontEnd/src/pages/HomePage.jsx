@@ -17,6 +17,20 @@ const HomePage = () => {
   const [filter, setFilter] = useState('all');
   const [dateQuery, setDateQuery] = useState('today');
   const [page, setPage] = useState(1);
+
+  const fetchTasks = async() => {
+    try {
+      const res = await api.get(`/tasks?filter=${dateQuery}`);
+
+      setTaskBuffer(res.data.tasks);
+      setActiveTaskCount(res.data.activeCount);
+      setCompleteTaskCount(res.data.completedCount);  
+
+    } catch (error) {
+      console.error("loi xay ra khi truy xuat task", error);
+      toast.error("loi xay ra khi truy xuat task");
+    }
+  };
                                                        
   useEffect( ()=> {
     fetchTasks();
@@ -42,20 +56,6 @@ const HomePage = () => {
   const handlePageChange = (newPage) => {
     setPage(newPage);
   }
-
-  const fetchTasks = async() => {
-    try {
-      const res = await api.get(`/tasks?filter=${dateQuery}`);
-
-      setTaskBuffer(res.data.tasks);
-      setActiveTaskCount(res.data.activeCount);
-      setCompleteTaskCount(res.data.completedCount);  
-
-    } catch (error) {
-      console.error("loi xay ra khi truy xuat task", error);
-      toast.error("loi xay ra khi truy xuat task");
-    }
-  };
 
   // bien luu ds nvu da doc
   //filterTask = taskBuffer lưu giá trị của setTaskBuffer(res.data.tasks) lấy được hết task trong api res

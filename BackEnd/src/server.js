@@ -26,7 +26,7 @@ app.use("/api/users", userRoute);
 
 if(process.env.NODE_ENV !== "production")
 {
-    app.use(cors({ origin:"http://localhost:5173" })); 
+    app.use(cors({ origin: ["http://localhost:5173", "http://localhost:5174"] })); 
 }
 
 if(process.env.NODE_ENV === "production")

@@ -17,17 +17,17 @@ const __dirname = path.resolve();
 app.use(express.json());
 app.use(cookieParser());
 
+if(process.env.NODE_ENV !== "production")
+{
+    app.use(cors({ origin: ["http://localhost:5173", "http://localhost:5174"] })); 
+}
+
 //public route
 app.use("/api/tasks", TaskRoutes);
 app.use("/api/auth", authRoutes);
 
 //private route
 app.use("/api/users", userRoute);
-
-if(process.env.NODE_ENV !== "production")
-{
-    app.use(cors({ origin: ["http://localhost:5173", "http://localhost:5174"] })); 
-}
 
 if(process.env.NODE_ENV === "production")
 {

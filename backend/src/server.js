@@ -39,8 +39,7 @@ app.use("/api/tasks", TaskRoutes);
 app.use("/api/auth", authRoutes);
 
 //private route
-app.use(protectedRoute);
-app.use("/api/users", userRoute);
+app.use("/api/users", protectedRoute, userRoute);
 
 if(process.env.NODE_ENV === "production")
 {

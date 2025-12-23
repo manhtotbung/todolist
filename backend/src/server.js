@@ -21,12 +21,17 @@ const __dirname = path.resolve();
 app.use(express.json());
 app.use(cookieParser());
 
-if(process.env.NODE_ENV !== "production")
-{
+
+if(process.env.NODE_ENV !== "production") {
     app.use(cors({ 
         origin: ["http://localhost:5173", "http://localhost:5174"],
         credentials: true
     })); 
+} else {
+    app.use(cors({
+        origin: ["https://todolist-aecd.onrender.com"],
+        credentials: true
+    }));
 }
 
 //public route

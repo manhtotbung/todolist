@@ -19,7 +19,10 @@ app.use(cookieParser());
 
 if(process.env.NODE_ENV !== "production")
 {
-    app.use(cors({ origin: ["http://localhost:5173", "http://localhost:5174"] })); 
+    app.use(cors({ 
+        origin: ["http://localhost:5173", "http://localhost:5174"],
+        credentials: true
+    })); 
 }
 
 //public route

@@ -1,9 +1,9 @@
 import express from 'express';
-import { authme } from '../controller/userController.js';
+import { authMe } from '../controller/userController.js';
 
 
 const router = express.Router();
 
-router.get("/me", authme);
+router.get("/me", authMe);
 
 export default router;

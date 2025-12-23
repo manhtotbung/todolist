@@ -75,6 +75,7 @@ export function SigninForm({ className, ...props }: React.ComponentProps<"div">)
                   type="text"
                   id="username"
                   placeholder="moji"
+                  className=""
                   {...register("username")}
                 />
                 {errors.username && (
@@ -95,6 +96,7 @@ export function SigninForm({ className, ...props }: React.ComponentProps<"div">)
                 <Input
                   type="password"
                   id="password"
+                  className=""
                   {...register("password")}
                 />
                 {errors.password && (
@@ -108,6 +110,8 @@ export function SigninForm({ className, ...props }: React.ComponentProps<"div">)
               <Button
                 type="submit"
                 className="w-full"
+                variant="default"
+                size="default"
                 disabled={isSubmitting}
               >
                 Đăng nhập

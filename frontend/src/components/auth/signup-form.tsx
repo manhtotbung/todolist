@@ -81,6 +81,7 @@ export function SignupForm({ className, ...props }: React.ComponentProps<"div">)
                   <Input
                     type="text"
                     id="lastName"
+                    className=""
                     {...register("lastName")}
                   />
 
@@ -100,6 +101,7 @@ export function SignupForm({ className, ...props }: React.ComponentProps<"div">)
                   <Input
                     type="text"
                     id="firstName"
+                    className=""
                     {...register("firstName")}
                   />
                   {errors.firstName && (
@@ -122,6 +124,7 @@ export function SignupForm({ className, ...props }: React.ComponentProps<"div">)
                   type="text"
                   id="username"
                   placeholder="moji"
+                  className=""
                   {...register("username")}
                 />
                 {errors.username && (
@@ -143,6 +146,7 @@ export function SignupForm({ className, ...props }: React.ComponentProps<"div">)
                   type="email"
                   id="email"
                   placeholder="m@gmail.com"
+                  className=""
                   {...register("email")}
                 />
                 {errors.email && (
@@ -161,6 +165,7 @@ export function SignupForm({ className, ...props }: React.ComponentProps<"div">)
                 <Input
                   type="password"
                   id="password"
+                  className=""
                   {...register("password")}
                 />
                 {errors.password && (
@@ -174,6 +179,8 @@ export function SignupForm({ className, ...props }: React.ComponentProps<"div">)
               <Button
                 type="submit"
                 className="w-full"
+                variant="default"
+                size="default"
                 disabled={isSubmitting}
               >
                 Tạo tài khoản

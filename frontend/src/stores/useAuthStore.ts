@@ -44,7 +44,7 @@ export const useAuthStore = create<AuthState>((set, get) => ({
 
       await get().fetchMe();
 
-      toast.success("Chào mừng bạn quay lại với Moji 🎉");
+      toast.success("Chào mừng bạn quay lại với Easy Tasks!");
     } catch (error) {
       console.error(error);
       toast.error("Đăng nhập không thành công!");

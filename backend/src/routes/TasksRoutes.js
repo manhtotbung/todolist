@@ -1,15 +1,13 @@
 import express from "express";
 import { GetAllTasks, CreateTask, UpdateTask, DeleteTask } from "../controller/TasksController.js";
+import { protectedRoute } from "../middlewares/authMiddleware.js";
 
 const router = express.Router();
 
-//read
-router.get("/", GetAllTasks);
-//post: create
-router.post("/", CreateTask);
-//put: update
-router.put("/:id", UpdateTask);
-
-router.delete("/:id", DeleteTask);
+// Tất cả các route đều cần xác thực
+router.get("/", protectedRoute, GetAllTasks);
+router.post("/", protectedRoute, CreateTask);
+router.put("/:id", protectedRoute, UpdateTask);
+router.delete("/:id", protectedRoute, DeleteTask);
 
 export default router;

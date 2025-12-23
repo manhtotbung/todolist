@@ -31,7 +31,10 @@ export const GetAllTasks = async (req, res) => {
     // gte is stand for greater than or equal to >= Nếu startDate có giá trị (truthy) 
     // → lọc theo ngày tạo: lấy những document có createdAt >= startDate.
     //createdAt >= startDate lọc từ mốc bắt đầu trở đi (không lấy những bản ghi cũ hơn).
-    const query = StartDate ? {createdAt : {$gte:StartDate}} : {};
+    // Chỉ lấy task của user hiện tại
+    const userQuery = { userId: req.user._id };
+    const dateQuery = StartDate ? { createdAt: { $gte: StartDate } } : {};
+    const query = { ...userQuery, ...dateQuery };
 
     try {
         // const tasks = await Task.find().sort({createdAt: "desc"}); //lay toan bo du lieu tu model Task or collection Task
@@ -66,7 +69,8 @@ export const GetAllTasks = async (req, res) => {
 export const CreateTask =  async (req, res)=>{
     try {
        const {title} = req.body;
-       const tasks = new Task({title});
+       // Lưu userId vào task
+       const tasks = new Task({title, userId: req.user._id});
 
        const NewTask = await tasks.save();
        res.status(201).json(NewTask);

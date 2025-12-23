@@ -37,6 +37,10 @@ export const useAuthStore = create<AuthState>((set, get) => ({
 
       const { accessToken } = await authService.signIn(username, password);
       get().setAccessToken(accessToken);
+      // Lưu token vào localStorage để axios interceptor sử dụng
+      if (accessToken) {
+        localStorage.setItem('accessToken', accessToken);
+      }
 
       await get().fetchMe();
 
@@ -52,6 +56,7 @@ export const useAuthStore = create<AuthState>((set, get) => ({
   signOut: async () => {
     try {
       get().clearState();
+      localStorage.removeItem('accessToken');
       await authService.signOut();
       toast.success("Logout thành công!");
     } catch (error) {
@@ -88,7 +93,9 @@ export const useAuthStore = create<AuthState>((set, get) => ({
       }
     } catch (error) {
       console.error(error);
-      toast.error("Phiên đăng nhập đã hết hạn. Vui lòng đăng nhập lại!");
+      if (get().accessToken) {
+        toast.error("Phiên đăng nhập đã hết hạn. Vui lòng đăng nhập lại!");
+      }
       get().clearState();
     } finally {
       set({ loading: false });

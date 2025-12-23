@@ -24,26 +24,26 @@ export function UserProfile({ user, onLogout, onProfile, onSettings }) {
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <button
-          className="flex items-center gap-3 px-3 py-2 rounded-lg bg-white hover:bg-accent transition-colors shadow-sm cursor-pointer border border-muted"
+          className="flex items-center gap-3 px-2 py-1 rounded-lg transition-colors cursor-pointer hover:bg-muted focus:outline-none"
           aria-label="User menu"
         >
           <Avatar className="h-10 w-10">
-            <AvatarImage src={user?.avatarUrl} alt={user?.name} />
+            <AvatarImage src={user?.avatarUrl} alt={user?.displayName} />
             <AvatarFallback>
-              {getInitials(user?.name)}
+              {getInitials(user?.displayName)}
             </AvatarFallback>
           </Avatar>
-          <div className="flex flex-col items-start min-w-0">
-            <span className="text-xs text-muted-foreground">Xin chào</span>
+          <div className="flex flex-col items-start min-w-0 text-left">
+            <span className="text-xs text-muted-foreground">Xin chào,</span>
             <span className="font-semibold text-base truncate max-w-[120px]">
-              {user?.name}
+              {user?.displayName}
             </span>
           </div>
         </button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end" className="min-w-[220px]">
         <DropdownMenuLabel className="flex flex-col gap-0.5">
-          <span className="font-semibold truncate">{user?.name}</span>
+          <span className="font-semibold truncate">{user?.displayName}</span>
           <span className="text-xs text-muted-foreground truncate">{user?.email}</span>
         </DropdownMenuLabel>
         <DropdownMenuSeparator />

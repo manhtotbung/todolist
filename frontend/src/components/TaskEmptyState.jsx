@@ -10,16 +10,16 @@ function TaskEmptyState({filter}) {
         <div>
             <h3 className='font-medium text-foreground'>
                 {
-                    filter === 'active' ? 'khong co nhiem vu nao dang lam':
-                    filter === 'completed' ? 'chua co nhiem vu nao hoan thanh':
-                    "chua co nhiem vu"
+                    filter === 'active' ? 'Không có nhiệm vụ nào đang làm':
+                    filter === 'completed' ? 'Chưa có nhiệm vụ nào hoàn thành':
+                    "Chưa có nhiệm vụ"
                 }
             </h3>
              
             <p className='text-sm text-muted-foreground'>
                 {
-                    filter === 'all' ? 'them nhiem vu dau tien de bat dau!':
-                    `chuyen sang "tat ca" de thay nhung nhiem vu ${filter === 'active' ? 'da hoan thanh' : 'dang lam'}`
+                    filter === 'all' ? 'Thêm nhiệm vụ đầu tiên để bắt đầu!':
+                    `Chuyển sang "Tất cả" để xem những nhiệm vụ ${filter === 'active' ? 'đã hoàn thành' : 'đang làm'}`
                 }
             </p>
         </div>

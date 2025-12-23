@@ -39,7 +39,7 @@ const AddTask = ({handleNewTaskAdded}) => {
       <div className='flex flex-col gap-3 sm:flex-row'>
         <Input
           type='text'
-          placeholder='Can phai lam gi?'
+          placeholder='Cần phải làm gì?'
           className='h-12 text-base bg-slate-50 sm: flex-1 border-border/50 focus:border-primary/50 focus: ring-primary/20'
           value = {NewTaskTitle}
           onChange = {(even) => setNewTaskTitle(even.target.value)}
@@ -53,7 +53,7 @@ const AddTask = ({handleNewTaskAdded}) => {
         disabled={!NewTaskTitle.trim()}
       >
         <Plus className='size-5'/>
-        Them
+        Thêm
       </Button>
       </div>
     </Card>

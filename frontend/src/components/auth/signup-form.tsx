@@ -58,12 +58,12 @@ export function SignupForm({ className, ...props }: React.ComponentProps<"div">)
                   className="mx-auto block w-fit text-center"
                 >
                   <img
-                    src="/logo.svg"
+                    src="/logo.png"
                     alt="logo"
                   />
                 </a>
 
-                <h1 className="text-2xl font-bold">Tạo tài khoản Moji</h1>
+                <h1 className="text-2xl font-bold">Tạo tài khoản Easy Tasks</h1>
                 <p className="text-muted-foreground text-balance">
                   Chào mừng bạn! Hãy đăng ký để bắt đầu!
                 </p>

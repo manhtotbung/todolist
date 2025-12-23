@@ -101,82 +101,72 @@ const HomePage = () => {
   }
 
   return (
-    <div className="min-h-screen w-full bg-[#fefcff] relative">
-  {/* Dreamy Sky Pink + Blue Glow */}
-  <div
-    className="absolute inset-0 z-0 pointer-events-none"
-    style={{
-      backgroundImage: `
-        /* xanh hơn & đậm hơn một chút */
-        radial-gradient(circle at 25% 70%, rgba(135, 206, 250, 0.45), transparent 60%),
-        /* hồng giữ nhẹ hơn để không át xanh */
-        radial-gradient(circle at 70% 30%, rgba(255, 182, 193, 0.32), transparent 62%),
-        /* thêm một quầng xanh rất nhạt để blend */
-        radial-gradient(circle at 50% 40%, rgba(173, 216, 230, 0.22), transparent 70%)
-      `,
-    }}
-  />
-  {/* Your Content/Components */}
-  <div className="container relative z-10 pt-8 mx-auto">
-    <div className="w-full max-w-2xl p-6 mx-auto space-y-6">
-      {/* User Profile Section */}
-      {user && (
-        <div className="flex justify-end mb-2">
-          <UserProfile
-            user={user}
-            onLogout={signOut}
-            onProfile={() => {}}
-            onSettings={() => {}}
-          />
-        </div>
-      )}
-
-          {/* Header */}
-          <Header/>
+    <div className="min-h-screen w-full bg-[#f6fbff] relative">
+      {/* Softer, lighter blue gradient background */}
+      <div
+        className="absolute inset-0 z-0 pointer-events-none"
+        style={{
+          backgroundImage: `
+            linear-gradient(135deg, #f6fbff 0%, #e3f2fd 60%, #dbeafe 100%),
+            radial-gradient(circle at 60% 20%, rgba(120, 180, 255, 0.10), transparent 70%),
+            radial-gradient(circle at 30% 80%, rgba(100, 180, 255, 0.07), transparent 80%)
+          `,
+        }}
+      />
+      {/* Main Content */}
+      <div className="container relative z-10 pt-8 mx-auto">
+        <div className="w-full max-w-2xl p-6 mx-auto space-y-6">
+          {/* Header row: left = Header, right = UserProfile */}
+          <div className="flex items-center justify-between mb-4">
+            <Header />
+            {user && (
+              <UserProfile
+                user={user}
+                onLogout={signOut}
+                onProfile={() => {}}
+                onSettings={() => {}}
+              />
+            )}
+          </div>
 
           {/* add nv */}
-          <AddTask handleNewTaskAdded = {handleTaskChanged} />
+          <AddTask handleNewTaskAdded={handleTaskChanged} />
 
           {/* Thong ke va filter */}
           <StatAndFilter
-            completedTaskCount = {completeTaskCount}
-            activeTaskCount = {activeTaskCount}
-            filter = {filter}
-            setFilter = {setFilter}
+            completedTaskCount={completeTaskCount}
+            activeTaskCount={activeTaskCount}
+            filter={filter}
+            setFilter={setFilter}
           />
 
           {/* Danh sach nv */}
-          <TaskList filteredTasks={visibleTask} 
-                    filter={filter} 
-                    handleTaskChanged = {handleTaskChanged}
+          <TaskList
+            filteredTasks={visibleTask}
+            filter={filter}
+            handleTaskChanged={handleTaskChanged}
           />
-
 
           {/* Phân Trang và Lọc Theo Date */}
           <div className="flex flex-col items-center justify-between gap-6 sm:flex-row">
-           <TaskListPagination
-                    handleNext ={handleNext}
-                    handlePrev = {handlePrev}
-                    handlePageChange = {handlePageChange}
-                    page = {page}
-                    totalPage = {totalPage}
-
-                  />
-                  <DateTimeFilter
-                    dateQuery={dateQuery}
-                    setDateQuery={setDateQuery}
-                  />
-            </div>       
+            <TaskListPagination
+              handleNext={handleNext}
+              handlePrev={handlePrev}
+              handlePageChange={handlePageChange}
+              page={page}
+              totalPage={totalPage}
+            />
+            <DateTimeFilter
+              dateQuery={dateQuery}
+              setDateQuery={setDateQuery}
+            />
+          </div>
 
           {/* Footer */}
-          <Footer/>
-          
-
+          <Footer />
+        </div>
+      </div>
     </div>
-
-
-  </div>
-</div>
   );
 };
 

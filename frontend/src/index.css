@@ -19,9 +19,11 @@
     --popover-foreground: 215 28% 27%;
 
     /* Beautiful gradient colors */
-    --primary: 258 89% 65%;
-    --primary-light: 255 92% 76%;
-    --primary-dark: 263 69% 50%;
+    /* Soft coral for button, pairs well with blue */
+    /* Blue-gray for button, elegant and modern */
+    --primary: 210 20% 70%;
+    --primary-light: 210 20% 80%;
+    --primary-dark: 210 20% 55%;
     --primary-foreground: 0 0% 100%;
 
     --secondary: 240 5% 96%;
@@ -49,8 +51,8 @@
     /* Gradients */
     --gradient-primary: linear-gradient(
       135deg,
-      hsl(255 92% 76%) 0%,
-      hsl(263 69% 50%) 100%
+      hsl(210 20% 80%) 0%,
+      hsl(210 20% 70%) 100%
     );
     --gradient-background: linear-gradient(
       135deg,

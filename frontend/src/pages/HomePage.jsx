@@ -1,4 +1,6 @@
 import AddTask from '@/components/AddTask'
+import { UserProfile } from '@/components/UserProfile'
+import { useAuthStore } from '@/stores/useAuthStore'
 import DateTimeFilter from '@/components/DateTimeFilter'
 import Footer from '@/components/Footer'
 import Header from '@/components/Header'
@@ -11,6 +13,8 @@ import api from '@/lib/axios'
 import { visibleTaskLimit } from '@/lib/data'
 
 const HomePage = () => {
+  const user = useAuthStore((state) => state.user);
+  const signOut = useAuthStore((state) => state.signOut);
   const [taskBuffer, setTaskBuffer] = useState([]);   //lay task tu task trong api                      
   const [activeTaskCount, setActiveTaskCount] = useState(0);
   const [completeTaskCount, setCompleteTaskCount] = useState(0);
@@ -115,6 +119,17 @@ const HomePage = () => {
   {/* Your Content/Components */}
   <div className="container relative z-10 pt-8 mx-auto">
     <div className="w-full max-w-2xl p-6 mx-auto space-y-6">
+      {/* User Profile Section */}
+      {user && (
+        <div className="flex justify-end mb-2">
+          <UserProfile
+            user={user}
+            onLogout={signOut}
+            onProfile={() => {}}
+            onSettings={() => {}}
+          />
+        </div>
+      )}
 
           {/* Header */}
           <Header/>

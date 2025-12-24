@@ -47,7 +47,7 @@ export const useAuthStore = create<AuthState>((set, get) => ({
       toast.success("Chào mừng bạn quay lại với Easy Tasks!");
     } catch (error) {
       console.error(error);
-      toast.error("Đăng nhập không thành công!");
+      toast.error("Tài khoản hoặc mật khẩu không chính xác. Hãy thử lại!");
     } finally {
       set({ loading: false });
     }

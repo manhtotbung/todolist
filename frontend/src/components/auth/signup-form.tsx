@@ -60,6 +60,7 @@ export function SignupForm({ className, ...props }: React.ComponentProps<"div">)
                   <img
                     src="/logo.png"
                     alt="logo"
+                    className="w-16 h-16" 
                   />
                 </a>
 

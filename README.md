@@ -1,6 +1,6 @@
 # EasyTasks - Quản lý công việc cá nhân
 
-Easy Tasks là ứng dụng web giúp bạn quản lý các nhiệm vụ hàng ngày một cách đơn giản, trực quan và hiện đại. Dự án này gồm cả backend (Node.js/Express/MongoDB) và frontend (React + Vite + TailwindCSS), triển khai sẵn sàng cho môi trường production.
+EasyTasks là ứng dụng web giúp quản lý nhiệm vụ cá nhân với giao diện hiện đại, dễ dùng.
 
 ## Tính năng nổi bật
 - Đăng ký, đăng nhập, đăng xuất tài khoản
